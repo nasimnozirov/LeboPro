@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		4892F4F929C63DD500AF5C92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F4F829C63DD500AF5C92 /* AppDelegate.swift */; };
 		4892F4FB29C63DD500AF5C92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F4FA29C63DD500AF5C92 /* SceneDelegate.swift */; };
-		4892F4FD29C63DD500AF5C92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F4FC29C63DD500AF5C92 /* ViewController.swift */; };
-		4892F50029C63DD500AF5C92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4892F4FE29C63DD500AF5C92 /* Main.storyboard */; };
+		4892F4FD29C63DD500AF5C92 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F4FC29C63DD500AF5C92 /* MainViewController.swift */; };
 		4892F50229C63DD700AF5C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4892F50129C63DD700AF5C92 /* Assets.xcassets */; };
 		4892F50529C63DD700AF5C92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4892F50329C63DD700AF5C92 /* LaunchScreen.storyboard */; };
+		4892F50D29D20D1000AF5C92 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F50C29D20D1000AF5C92 /* SettingViewController.swift */; };
+		4892F50F29D3626000AF5C92 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F50E29D3625F00AF5C92 /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4892F4F529C63DD500AF5C92 /* LoginAppInCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginAppInCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4892F4F529C63DD500AF5C92 /* LeboPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeboPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4892F4F829C63DD500AF5C92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4892F4FA29C63DD500AF5C92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4892F4FC29C63DD500AF5C92 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4892F4FF29C63DD500AF5C92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4892F4FC29C63DD500AF5C92 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4892F50129C63DD700AF5C92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4892F50429C63DD700AF5C92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4892F50629C63DD700AF5C92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4892F50C29D20D1000AF5C92 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		4892F50E29D3625F00AF5C92 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +42,7 @@
 		4892F4EC29C63DD500AF5C92 = {
 			isa = PBXGroup;
 			children = (
-				4892F4F729C63DD500AF5C92 /* LoginAppInCode */,
+				4892F4F729C63DD500AF5C92 /* LeboPro */,
 				4892F4F629C63DD500AF5C92 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,31 +50,32 @@
 		4892F4F629C63DD500AF5C92 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4892F4F529C63DD500AF5C92 /* LoginAppInCode.app */,
+				4892F4F529C63DD500AF5C92 /* LeboPro.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4892F4F729C63DD500AF5C92 /* LoginAppInCode */ = {
+		4892F4F729C63DD500AF5C92 /* LeboPro */ = {
 			isa = PBXGroup;
 			children = (
 				4892F4F829C63DD500AF5C92 /* AppDelegate.swift */,
 				4892F4FA29C63DD500AF5C92 /* SceneDelegate.swift */,
-				4892F4FC29C63DD500AF5C92 /* ViewController.swift */,
-				4892F4FE29C63DD500AF5C92 /* Main.storyboard */,
+				4892F4FC29C63DD500AF5C92 /* MainViewController.swift */,
+				4892F50C29D20D1000AF5C92 /* SettingViewController.swift */,
+				4892F50E29D3625F00AF5C92 /* Models.swift */,
 				4892F50129C63DD700AF5C92 /* Assets.xcassets */,
 				4892F50329C63DD700AF5C92 /* LaunchScreen.storyboard */,
 				4892F50629C63DD700AF5C92 /* Info.plist */,
 			);
-			path = LoginAppInCode;
+			path = LeboPro;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4892F4F429C63DD500AF5C92 /* LoginAppInCode */ = {
+		4892F4F429C63DD500AF5C92 /* LeboPro */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4892F50929C63DD700AF5C92 /* Build configuration list for PBXNativeTarget "LoginAppInCode" */;
+			buildConfigurationList = 4892F50929C63DD700AF5C92 /* Build configuration list for PBXNativeTarget "LeboPro" */;
 			buildPhases = (
 				4892F4F129C63DD500AF5C92 /* Sources */,
 				4892F4F229C63DD500AF5C92 /* Frameworks */,
@@ -82,9 +85,9 @@
 			);
 			dependencies = (
 			);
-			name = LoginAppInCode;
+			name = LeboPro;
 			productName = LoginAppInCode;
-			productReference = 4892F4F529C63DD500AF5C92 /* LoginAppInCode.app */;
+			productReference = 4892F4F529C63DD500AF5C92 /* LeboPro.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +105,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4892F4F029C63DD500AF5C92 /* Build configuration list for PBXProject "LoginAppInCode" */;
+			buildConfigurationList = 4892F4F029C63DD500AF5C92 /* Build configuration list for PBXProject "LeboPro" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +118,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4892F4F429C63DD500AF5C92 /* LoginAppInCode */,
+				4892F4F429C63DD500AF5C92 /* LeboPro */,
 			);
 		};
 /* End PBXProject section */
@@ -127,7 +130,6 @@
 			files = (
 				4892F50529C63DD700AF5C92 /* LaunchScreen.storyboard in Resources */,
 				4892F50229C63DD700AF5C92 /* Assets.xcassets in Resources */,
-				4892F50029C63DD500AF5C92 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +140,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4892F4FD29C63DD500AF5C92 /* ViewController.swift in Sources */,
+				4892F4FD29C63DD500AF5C92 /* MainViewController.swift in Sources */,
 				4892F4F929C63DD500AF5C92 /* AppDelegate.swift in Sources */,
 				4892F4FB29C63DD500AF5C92 /* SceneDelegate.swift in Sources */,
+				4892F50D29D20D1000AF5C92 /* SettingViewController.swift in Sources */,
+				4892F50F29D3626000AF5C92 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4892F4FE29C63DD500AF5C92 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4892F4FF29C63DD500AF5C92 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4892F50329C63DD700AF5C92 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +212,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +266,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -287,19 +283,20 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2Q75YJGX45;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LoginAppInCode/Info.plist;
+				INFOPLIST_FILE = LeboPro/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "nasim-nozirov.LoginAppInCode";
+				PRODUCT_BUNDLE_IDENTIFIER = "nasim-nozirov.LeboPro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -315,18 +312,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LoginAppInCode/Info.plist;
+				INFOPLIST_FILE = LeboPro/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "nasim-nozirov.LoginAppInCode";
+				PRODUCT_BUNDLE_IDENTIFIER = "nasim-nozirov.LeboPro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -337,7 +334,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4892F4F029C63DD500AF5C92 /* Build configuration list for PBXProject "LoginAppInCode" */ = {
+		4892F4F029C63DD500AF5C92 /* Build configuration list for PBXProject "LeboPro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4892F50729C63DD700AF5C92 /* Debug */,
@@ -346,7 +343,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4892F50929C63DD700AF5C92 /* Build configuration list for PBXNativeTarget "LoginAppInCode" */ = {
+		4892F50929C63DD700AF5C92 /* Build configuration list for PBXNativeTarget "LeboPro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4892F50A29C63DD700AF5C92 /* Debug */,
