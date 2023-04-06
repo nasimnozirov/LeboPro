@@ -10,16 +10,13 @@ import UIKit
 
 class SettingViewController: UIViewController {
     
-    var delegate: TransmissionOfInformationDelegate?
-    
     var mainVC: MainViewController?
-    private var userName = ""
     private lazy var emojiLabel: UILabel = {
-        aditLabel(label: "🌚👀💋", fond: UIFont.systemFont(ofSize: 80))
+        aditLabel(fond: UIFont.systemFont(ofSize: 80))
     }()
     
     lazy var userLabel: UILabel = {
-        aditLabel(label: "Hi \(String(describing: delegate?.updata(user: "hhh")))", fond: UIFont.systemFont(ofSize: 80))
+        aditLabel(fond: UIFont.systemFont(ofSize: 80))
     }()
     
     private let verticalStackView: UIStackView = {
@@ -33,12 +30,15 @@ class SettingViewController: UIViewController {
         return verticalStackView
     }()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
         view.addSubview(verticalStackView)
         addElementInStack()
         fixToConstraint()
+        emojiLabel.text = "🌚💋👀"
+        mainVC?.delegate = self
     }
     
     private func addElementInStack() {
@@ -47,14 +47,14 @@ class SettingViewController: UIViewController {
     }
     
     
-    private func aditLabel(label text: String, fond: UIFont) -> UILabel {
+    private func aditLabel(fond: UIFont) -> UILabel {
         let label = UILabel()
-        label.text =  text
         label.font = fond
         label.backgroundColor = .gray
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+        
     }
     
     private func fixToConstraint() {
@@ -70,3 +70,9 @@ class SettingViewController: UIViewController {
 }
 
 
+extension SettingViewController: TransmissionOfInformationDelegate {
+    func updata(user: String) {
+        userLabel.text = user
+    }
+   
+}

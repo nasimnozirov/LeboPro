@@ -14,8 +14,7 @@ protocol TransmissionOfInformationDelegate {
 
 class MainViewController: UIViewController {
     
-    
-   
+    var delegate: TransmissionOfInformationDelegate?
     
     private let user = User.getUser()
     
@@ -154,9 +153,9 @@ class MainViewController: UIViewController {
     
     private func goToSettingVC() {
         let settingVC = SettingViewController()
-
+       delegate?.updata(user: userNameTF.text ?? "😢")
         navigationController?.pushViewController(settingVC, animated: true)
-        settingVC.delegate = self
+        
     }
 }
 
@@ -173,9 +172,3 @@ extension MainViewController {
 
 
 
-extension MainViewController: TransmissionOfInformationDelegate {
-    func updata(user: String) {
-        userNameTF.text = user
-    }
-   
-}
