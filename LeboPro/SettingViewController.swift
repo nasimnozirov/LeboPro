@@ -11,12 +11,24 @@ import UIKit
 class SettingViewController: UIViewController {
     
     var mainVC: MainViewController?
-    private lazy var emojiLabel: UILabel = {
-        aditLabel(fond: UIFont.systemFont(ofSize: 80))
+    
+    var userName = ""
+    private var dismissButton: UIButton = {
+      lazy var button = UIButton()
+        button.setTitle("GO", for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0.800, green: 0.500, blue: 0.900, alpha: 1)
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
-    lazy var userLabel: UILabel = {
-        aditLabel(fond: UIFont.systemFont(ofSize: 80))
+    private lazy var emojiLabel: UILabel = {
+        aditLabel(fond: UIFont.systemFont(ofSize: 60))
+    }()
+    
+   private lazy var userLabel: UILabel = {
+        aditLabel(fond: UIFont.systemFont(ofSize: 30))
     }()
     
     private let verticalStackView: UIStackView = {
@@ -35,10 +47,11 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .gray
         view.addSubview(verticalStackView)
+        view.addSubview(dismissButton)
         addElementInStack()
         fixToConstraint()
+        dismissButton.addTarget(self, action: #selector(touch), for: .touchUpInside)
         emojiLabel.text = "🌚💋👀"
-        mainVC?.delegate = self
     }
     
     private func addElementInStack() {
@@ -62,17 +75,29 @@ class SettingViewController: UIViewController {
             verticalStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
             verticalStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
             verticalStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
-            verticalStackView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, constant: -500)
+            verticalStackView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, constant: -500),
+            
+            dismissButton.topAnchor.constraint(equalTo: verticalStackView.bottomAnchor, constant: 150),
+            dismissButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 124),
+            dismissButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -124),
+            dismissButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -200)
         ])
     }
     
+    @objc func touch() {
+       
+        mainVC?.userNameTF.text = ""
+        mainVC?.passwordTF.text = ""
+     dismiss(animated: true)
+    }
 
 }
 
 
 extension SettingViewController: TransmissionOfInformationDelegate {
     func updata(user: String) {
-        userLabel.text = user
+        userName = user
+        userLabel.text = "Hi \(userName) welcome"
     }
    
 }

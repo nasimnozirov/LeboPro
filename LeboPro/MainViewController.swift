@@ -13,18 +13,30 @@ protocol TransmissionOfInformationDelegate {
 
 
 class MainViewController: UIViewController {
-    
+    var scrollView: UIScrollView?
     var delegate: TransmissionOfInformationDelegate?
     
     private let user = User.getUser()
     
-    private lazy var userNameTF: UITextField = {
-        createTextField(textColor: .black, textAlignment: .left, placeholder: "User name", isSecureTextEntry: false)
+    lazy var userNameTF: UITextField = {
+        createTextField(
+            textColor: .black,
+            textAlignment: .left,
+            placeholder: "User name",
+            isSecureTextEntry: false,
+            returnKeyType: .next
+        )
     }()
 
     
-    private lazy var passwordTF: UITextField = {
-       createTextField(textColor: .black, textAlignment: .left, placeholder: "Password", isSecureTextEntry: true)
+    lazy var passwordTF: UITextField = {
+        createTextField(
+            textColor: .black,
+            textAlignment: .left,
+            placeholder: "Password",
+            isSecureTextEntry: true,
+            returnKeyType: .done
+        )
     }()
     
     private lazy var userNameButton: UIButton = {
@@ -128,7 +140,13 @@ class MainViewController: UIViewController {
         ])
     }
     
-    private func createTextField(textColor: UIColor,textAlignment: NSTextAlignment, placeholder: String, isSecureTextEntry: Bool) -> UITextField {
+    private func createTextField(
+        textColor: UIColor,
+        textAlignment: NSTextAlignment,
+        placeholder: String,
+        isSecureTextEntry: Bool,
+        returnKeyType: UIReturnKeyType) -> UITextField {
+            
         let textField = UITextField()
         textField.textColor = textColor
         textField.textAlignment = textAlignment
@@ -136,6 +154,9 @@ class MainViewController: UIViewController {
         textField.borderStyle = .roundedRect
         textField.enablesReturnKeyAutomatically = true
         textField.isSecureTextEntry = isSecureTextEntry
+        textField.autocorrectionType = .no
+        textField.spellCheckingType = .no
+        textField.returnKeyType = returnKeyType
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }
@@ -153,8 +174,11 @@ class MainViewController: UIViewController {
     
     private func goToSettingVC() {
         let settingVC = SettingViewController()
-       delegate?.updata(user: userNameTF.text ?? "😢")
-        navigationController?.pushViewController(settingVC, animated: true)
+        delegate = settingVC
+        delegate?.updata(user: userNameTF.text ?? "😢")
+        settingVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        present(settingVC, animated: true)
+//        navigationController?.pushViewController(settingVC, animated: true)
         
     }
 }
@@ -171,4 +195,59 @@ extension MainViewController {
 }
 
 
+extension MainViewController: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == userNameTF {
+            passwordTF.becomeFirstResponder()
+        } else {
+            goToSettingVC()
+        }
+        return true
+    }
+}
 
+extension MainViewController {
+    private func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(kbWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(kbWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
+    }
+    
+    private func removeKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+        
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
+    }
+    
+    @objc func kbWillShow(_ notification: Notification) {
+        let userInfo = notification.userInfo
+        guard let kbFrameSize = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else
+        { return }
+        
+        scrollView?.contentOffset = CGPoint.zero
+    }
+    
+    @objc func kbWillHide() {
+        scrollView?.contentOffset = CGPoint.zero
+    }
+    
+}

@@ -13,6 +13,6 @@ struct User {
     var password: String
     
     static func getUser() -> User {
-        User(userName: "write your name!", password: "Bitch")
+        User(userName: "write your name!", password: "bitch")
     }
 }
