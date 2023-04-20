@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4876375729EC634E00527A77 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4876375629EC634E00527A77 /* RegisterViewController.swift */; };
 		4892F4F929C63DD500AF5C92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F4F829C63DD500AF5C92 /* AppDelegate.swift */; };
 		4892F4FB29C63DD500AF5C92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F4FA29C63DD500AF5C92 /* SceneDelegate.swift */; };
 		4892F4FD29C63DD500AF5C92 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F4FC29C63DD500AF5C92 /* MainViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4876375629EC634E00527A77 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4892F4F529C63DD500AF5C92 /* LeboPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeboPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4892F4F829C63DD500AF5C92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4892F4FA29C63DD500AF5C92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				4892F4F829C63DD500AF5C92 /* AppDelegate.swift */,
 				4892F4FA29C63DD500AF5C92 /* SceneDelegate.swift */,
 				4892F4FC29C63DD500AF5C92 /* MainViewController.swift */,
+				4876375629EC634E00527A77 /* RegisterViewController.swift */,
 				4892F50C29D20D1000AF5C92 /* SettingViewController.swift */,
 				4892F50E29D3625F00AF5C92 /* Models.swift */,
 				4892F50129C63DD700AF5C92 /* Assets.xcassets */,
@@ -144,6 +147,7 @@
 				4892F4F929C63DD500AF5C92 /* AppDelegate.swift in Sources */,
 				4892F4FB29C63DD500AF5C92 /* SceneDelegate.swift in Sources */,
 				4892F50D29D20D1000AF5C92 /* SettingViewController.swift in Sources */,
+				4876375729EC634E00527A77 /* RegisterViewController.swift in Sources */,
 				4892F50F29D3626000AF5C92 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

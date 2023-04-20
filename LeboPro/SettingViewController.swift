@@ -7,12 +7,13 @@
 
 import UIKit
 
-
+// Mark: - Class SettingViewController
 class SettingViewController: UIViewController {
     
-    var mainVC: MainViewController?
-    
+    // Mark: - Public property
     var userName = ""
+    
+    // Mark: - Public property
     private var dismissButton: UIButton = {
       lazy var button = UIButton()
         button.setTitle("GO", for: .normal)
@@ -42,7 +43,7 @@ class SettingViewController: UIViewController {
         return verticalStackView
     }()
     
-    
+    // Mark: - Override function
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
@@ -54,6 +55,7 @@ class SettingViewController: UIViewController {
         emojiLabel.text = "🌚💋👀"
     }
     
+    // Mark: - Private function
     private func addElementInStack() {
         verticalStackView.addArrangedSubview(userLabel)
         verticalStackView.addArrangedSubview(emojiLabel)
@@ -84,18 +86,16 @@ class SettingViewController: UIViewController {
         ])
     }
     
+    // Mark: -  #selector function
     @objc func touch() {
-       
-        mainVC?.userNameTF.text = ""
-        mainVC?.passwordTF.text = ""
      dismiss(animated: true)
     }
 
 }
 
-
+// Mark: - extension  SettingViewController: TransmissionOfInformationDelegate 
 extension SettingViewController: TransmissionOfInformationDelegate {
-    func updata(user: String) {
+    func upData(user: String) {
         userName = user
         userLabel.text = "Hi \(userName) welcome"
     }

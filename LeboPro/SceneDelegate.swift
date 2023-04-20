@@ -7,10 +7,11 @@
 
 import UIKit
 
+// Mark: - Class SceneDelegate
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    // Mark: - Public property
     var window: UIWindow?
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
