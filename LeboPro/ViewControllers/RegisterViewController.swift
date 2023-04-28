@@ -29,6 +29,17 @@ class RegisterViewController: UIViewController {
     private lazy var passwordTF: UITextField = {
          createTextField(placeholder: "Password", isSecureTextEntry: true, returnKeyType: .done)
      }()
+    
+    private lazy var returnButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("Сохранить", for: .normal)
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.translatesAutoresizingMaskIntoConstraints  = false
+        button.addTarget(self, action: #selector(touch), for: .touchUpInside)
+        return button
+    }()
 
     private lazy var verticalStackViewTF: UIStackView = {
         let verticalStackView = UIStackView()
@@ -61,6 +72,7 @@ class RegisterViewController: UIViewController {
     
     private func addSubview() {
         view.addSubview(verticalStackViewTF)
+        view.addSubview(returnButton)
     }
     
     private func addElementInStack() {
@@ -77,10 +89,10 @@ class RegisterViewController: UIViewController {
             
         let textField = UITextField()
         textField.textColor = .black
-        //textField.backgroundColor = .white
-        textField.textAlignment = .left
+        textField.backgroundColor = .white
+//        textField.textAlignment = .left
         textField.placeholder = placeholder
-        textField.borderStyle = .roundedRect
+        textField.borderStyle = .none
         textField.enablesReturnKeyAutomatically = true
         textField.isSecureTextEntry = isSecureTextEntry
         textField.autocorrectionType = .no
@@ -95,8 +107,17 @@ class RegisterViewController: UIViewController {
         verticalStackViewTF.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
         verticalStackViewTF.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
         verticalStackViewTF.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
-        verticalStackViewTF.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -500)
-        ])
+        verticalStackViewTF.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -500),
+        
+        returnButton.topAnchor.constraint(equalTo: verticalStackViewTF.bottomAnchor, constant: 210),
+        returnButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 120),
+        returnButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -120),
+        returnButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -250)
+    ])
+    }
+    
+    @objc func touch() {
+     dismiss(animated: true)
     }
 }
 
@@ -108,27 +129,31 @@ extension RegisterViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        if textField == nameTF {
+        switch textField {
+        case nameTF:
+            surnameTF.becomeFirstResponder()
+        case surnameTF:
+            emailTF.becomeFirstResponder()
+        case emailTF:
             passwordTF.becomeFirstResponder()
-        } else {
-            
+        default:
+           touch()
         }
-        return true
-    }
+     return true
+  }
 }
 
 extension RegisterViewController {
     private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(WillShow),
+            selector: #selector(willShow),
             name: UIResponder.keyboardWillShowNotification,
             object: nil)
         
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(WillHide),
+            selector: #selector(willHide),
             name: UIResponder.keyboardWillHideNotification,
             object: nil)
     }
@@ -145,7 +170,7 @@ extension RegisterViewController {
             object: nil)
     }
     
-    @objc func WillShow(_ notification: Notification) {
+    @objc func willShow(_ notification: Notification) {
         let userInfo = notification.userInfo
         guard let _ = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else
         { return }
@@ -153,7 +178,7 @@ extension RegisterViewController {
         scrollView?.contentOffset = CGPoint.zero
     }
     
-    @objc func WillHide() {
+    @objc func willHide() {
         scrollView?.contentOffset = CGPoint.zero
     }
     

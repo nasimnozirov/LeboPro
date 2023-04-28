@@ -7,17 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		484B640129FAF3F9003000B8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484B640029FAF3F9003000B8 /* TabBarController.swift */; };
+		484B640729FBE047003000B8 /* BasketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484B640629FBE047003000B8 /* BasketTableViewController.swift */; };
 		4876375729EC634E00527A77 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4876375629EC634E00527A77 /* RegisterViewController.swift */; };
 		4892F4F929C63DD500AF5C92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F4F829C63DD500AF5C92 /* AppDelegate.swift */; };
 		4892F4FB29C63DD500AF5C92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F4FA29C63DD500AF5C92 /* SceneDelegate.swift */; };
 		4892F4FD29C63DD500AF5C92 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F4FC29C63DD500AF5C92 /* MainViewController.swift */; };
-		4892F50229C63DD700AF5C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4892F50129C63DD700AF5C92 /* Assets.xcassets */; };
 		4892F50529C63DD700AF5C92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4892F50329C63DD700AF5C92 /* LaunchScreen.storyboard */; };
 		4892F50D29D20D1000AF5C92 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F50C29D20D1000AF5C92 /* SettingViewController.swift */; };
 		4892F50F29D3626000AF5C92 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F50E29D3625F00AF5C92 /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		484B640029FAF3F9003000B8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		484B640629FBE047003000B8 /* BasketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewController.swift; sourceTree = "<group>"; };
 		4876375629EC634E00527A77 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4892F4F529C63DD500AF5C92 /* LeboPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeboPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4892F4F829C63DD500AF5C92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +44,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		484B640229FBDD15003000B8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4892F4FA29C63DD500AF5C92 /* SceneDelegate.swift */,
+				4892F4F829C63DD500AF5C92 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		484B640329FBDD36003000B8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4892F4FC29C63DD500AF5C92 /* MainViewController.swift */,
+				4892F50C29D20D1000AF5C92 /* SettingViewController.swift */,
+				484B640629FBE047003000B8 /* BasketTableViewController.swift */,
+				4876375629EC634E00527A77 /* RegisterViewController.swift */,
+				484B640029FAF3F9003000B8 /* TabBarController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		484B640429FBDD96003000B8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4892F50E29D3625F00AF5C92 /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		484B640529FBDDBC003000B8 /* Resouseds */ = {
+			isa = PBXGroup;
+			children = (
+				4892F50129C63DD700AF5C92 /* Assets.xcassets */,
+			);
+			path = Resouseds;
+			sourceTree = "<group>";
+		};
 		4892F4EC29C63DD500AF5C92 = {
 			isa = PBXGroup;
 			children = (
@@ -60,13 +100,10 @@
 		4892F4F729C63DD500AF5C92 /* LeboPro */ = {
 			isa = PBXGroup;
 			children = (
-				4892F4F829C63DD500AF5C92 /* AppDelegate.swift */,
-				4892F4FA29C63DD500AF5C92 /* SceneDelegate.swift */,
-				4892F4FC29C63DD500AF5C92 /* MainViewController.swift */,
-				4876375629EC634E00527A77 /* RegisterViewController.swift */,
-				4892F50C29D20D1000AF5C92 /* SettingViewController.swift */,
-				4892F50E29D3625F00AF5C92 /* Models.swift */,
-				4892F50129C63DD700AF5C92 /* Assets.xcassets */,
+				484B640229FBDD15003000B8 /* App */,
+				484B640329FBDD36003000B8 /* ViewControllers */,
+				484B640429FBDD96003000B8 /* Models */,
+				484B640529FBDDBC003000B8 /* Resouseds */,
 				4892F50329C63DD700AF5C92 /* LaunchScreen.storyboard */,
 				4892F50629C63DD700AF5C92 /* Info.plist */,
 			);
@@ -132,7 +169,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4892F50529C63DD700AF5C92 /* LaunchScreen.storyboard in Resources */,
-				4892F50229C63DD700AF5C92 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,8 +179,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				484B640129FAF3F9003000B8 /* TabBarController.swift in Sources */,
 				4892F4FD29C63DD500AF5C92 /* MainViewController.swift in Sources */,
 				4892F4F929C63DD500AF5C92 /* AppDelegate.swift in Sources */,
+				484B640729FBE047003000B8 /* BasketTableViewController.swift in Sources */,
 				4892F4FB29C63DD500AF5C92 /* SceneDelegate.swift in Sources */,
 				4892F50D29D20D1000AF5C92 /* SettingViewController.swift in Sources */,
 				4876375729EC634E00527A77 /* RegisterViewController.swift in Sources */,
@@ -292,6 +330,7 @@
 				INFOPLIST_FILE = LeboPro/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -319,6 +358,7 @@
 				INFOPLIST_FILE = LeboPro/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

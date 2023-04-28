@@ -16,8 +16,8 @@ class SettingViewController: UIViewController {
     // Mark: - Public property
     private var dismissButton: UIButton = {
       lazy var button = UIButton()
-        button.setTitle("GO", for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.800, green: 0.500, blue: 0.900, alpha: 1)
+        button.setTitle("Вернуться", for: .normal)
+        button.backgroundColor = .black
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -37,8 +37,8 @@ class SettingViewController: UIViewController {
         verticalStackView.alignment = .fill
         verticalStackView.distribution = .fillEqually
         verticalStackView.axis = .vertical
-        verticalStackView.spacing = 10
-        verticalStackView.backgroundColor = .gray
+        verticalStackView.spacing = 5
+        verticalStackView.backgroundColor = .black
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         return verticalStackView
     }()
@@ -46,9 +46,10 @@ class SettingViewController: UIViewController {
     // Mark: - Override function
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gray
+        view.backgroundColor = .black
         view.addSubview(verticalStackView)
         view.addSubview(dismissButton)
+        title = "Профиль"
         addElementInStack()
         fixToConstraint()
         dismissButton.addTarget(self, action: #selector(touch), for: .touchUpInside)
@@ -65,7 +66,8 @@ class SettingViewController: UIViewController {
     private func aditLabel(fond: UIFont) -> UILabel {
         let label = UILabel()
         label.font = fond
-        label.backgroundColor = .gray
+        label.backgroundColor = .black
+        label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

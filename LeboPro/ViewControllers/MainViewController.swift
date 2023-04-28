@@ -13,6 +13,7 @@ protocol TransmissionOfInformationDelegate {
 }
 
 // Mark: - Class MainViewController
+
 class MainViewController: UIViewController {
     
     // Mark: - Public property
@@ -26,7 +27,7 @@ class MainViewController: UIViewController {
         createTextField(
             textColor: .black,
             textAlignment: .left,
-            placeholder: "User name",
+            placeholder: "Имя пользователя",
             isSecureTextEntry: false,
             returnKeyType: .next
         )
@@ -36,31 +37,30 @@ class MainViewController: UIViewController {
         createTextField(
             textColor: .black,
             textAlignment: .left,
-            placeholder: "Password",
+            placeholder: "Пароль",
             isSecureTextEntry: true,
             returnKeyType: .done
         )
     }()
     
     private lazy var userNameButton: UIButton = {
-        createButton(withTitle: "Register", action: UIAction { _ in
+        createButton(withTitle: "Зарегистрироваться", action: UIAction { _ in
             self.modalTransitionInRegisterVC()
         })
     }()
     
     
     private lazy var passwordButton: UIButton = {
-        createButton(withTitle: "Password", action: UIAction { _ in
+        createButton(withTitle: "Пароль", action: UIAction { _ in
             self.showAlert(title: "My password is", message: self.user.password)
         })
     }()
     
     private lazy var returnButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("Return", for: .normal)
+        button.setTitle("Продолжить", for: .normal)
         //button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
-        button.titleLabel?.textColor = .red
-        button.backgroundColor = .white
+        button.backgroundColor = .black
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
         button.translatesAutoresizingMaskIntoConstraints  = false
@@ -150,6 +150,7 @@ class MainViewController: UIViewController {
             
             let textField = UITextField()
             textField.textColor = textColor
+            textField.backgroundColor = .white
             textField.textAlignment = textAlignment
             textField.placeholder = placeholder
             textField.borderStyle = .roundedRect
@@ -184,12 +185,21 @@ class MainViewController: UIViewController {
     // Mark: -  #selector function
     @objc func goToSettingVC() {
         if self.passwordTF.text == user.password {
-            let settingVC = SettingViewController()
-            delegate = settingVC
-            delegate?.upData(user: userNameTF.text ?? "😢")
-            settingVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            present(settingVC, animated: true)
+//            let settingVC = SettingViewController()
+//            delegate = settingVC
+//            delegate?.upData(user: userNameTF.text ?? "😢")
+//            settingVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//            present(settingVC, animated: true)
             //        navigationController?.pushViewController(settingVC, animated: true)
+            let tabBarVC = TabBarController()
+            
+            let settingVC = SettingViewController()
+            let basketVC = BasketTableViewController()
+            
+            tabBarVC.setViewControllers([settingVC, basketVC], animated: false)
+            tabBarVC.modalPresentationStyle = .fullScreen
+            present(tabBarVC , animated: true)
+            
             userNameTF.text = ""
             passwordTF.text = ""
         } else {
@@ -211,6 +221,7 @@ extension MainViewController {
 }
 
 // Mark: - extension UITextFieldDelegate (creat keyword)
+
 extension MainViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super .touchesBegan(touches, with: event)
