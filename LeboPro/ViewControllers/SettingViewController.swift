@@ -25,11 +25,11 @@ class SettingViewController: UIViewController {
     }()
     
     private lazy var emojiLabel: UILabel = {
-        aditLabel(fond: UIFont.systemFont(ofSize: 60))
+        aditLabel(fond: UIFont.systemFont(ofSize: 60), text: "🌚💋👀")
     }()
     
    private lazy var userLabel: UILabel = {
-        aditLabel(fond: UIFont.systemFont(ofSize: 30))
+            aditLabel(fond: UIFont.systemFont(ofSize: 30), text:" Welcome \(userName)!")
     }()
     
     private let verticalStackView: UIStackView = {
@@ -52,8 +52,7 @@ class SettingViewController: UIViewController {
         title = "Профиль"
         addElementInStack()
         fixToConstraint()
-        dismissButton.addTarget(self, action: #selector(touch), for: .touchUpInside)
-        emojiLabel.text = "🌚💋👀"
+        dismissButton.addTarget(self, action: #selector(ouch), for: .touchUpInside)
     }
     
     // Mark: - Private function
@@ -63,12 +62,13 @@ class SettingViewController: UIViewController {
     }
     
     
-    private func aditLabel(fond: UIFont) -> UILabel {
+    private func aditLabel(fond: UIFont, text: String) -> UILabel {
         let label = UILabel()
         label.font = fond
         label.backgroundColor = .black
         label.textColor = .white
         label.textAlignment = .center
+        label.text = text
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
         
@@ -89,17 +89,10 @@ class SettingViewController: UIViewController {
     }
     
     // Mark: -  #selector function
-    @objc func touch() {
+    @objc func ouch() {
      dismiss(animated: true)
     }
 
 }
 
-// Mark: - extension  SettingViewController: TransmissionOfInformationDelegate 
-extension SettingViewController: TransmissionOfInformationDelegate {
-    func upData(user: String) {
-        userName = user
-        userLabel.text = "Hi \(userName) welcome"
-    }
-   
-}
+

@@ -27,18 +27,21 @@ class RegisterViewController: UIViewController {
      }()
     
     private lazy var passwordTF: UITextField = {
-         createTextField(placeholder: "Password", isSecureTextEntry: true, returnKeyType: .done)
+         createTextField(placeholder: "Password", isSecureTextEntry: false, returnKeyType: .done)
      }()
     
-    private lazy var returnButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setTitle("Сохранить", for: .normal)
-        button.backgroundColor = .white
-        button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
-        button.translatesAutoresizingMaskIntoConstraints  = false
-        button.addTarget(self, action: #selector(touch), for: .touchUpInside)
-        return button
+    private lazy var saveButton: UIButton = {
+        createButton(withTitle: "Сахранить", action: UIAction { _ in
+            self.touch()
+        })
+        
+    }()
+    
+    private lazy var cancelButton: UIButton = {
+        createButton(withTitle: "Отмена", action: UIAction { _ in
+            self.touch()
+        })
+        
     }()
 
     private lazy var verticalStackViewTF: UIStackView = {
@@ -52,14 +55,26 @@ class RegisterViewController: UIViewController {
         return verticalStackView
     }()
     
+    private lazy var horizontalStackViewButton: UIStackView = {
+        let horizontalStackView = UIStackView()
+        horizontalStackView.alignment = .fill
+        horizontalStackView.distribution = .fillEqually
+        horizontalStackView.axis = .horizontal
+        horizontalStackView.spacing = 120
+        horizontalStackView.backgroundColor = .black
+        horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
+        return horizontalStackView
+    }()
+    
     // Mark: - Override function
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-        addSubview()
+        addElementInView()
         setConstraints()
         addElementInStack()
         delegateTF()
+       
     }
     
     // Mark: - Private function
@@ -70,9 +85,9 @@ class RegisterViewController: UIViewController {
         passwordTF.delegate = self
     }
     
-    private func addSubview() {
+    private func addElementInView() {
         view.addSubview(verticalStackViewTF)
-        view.addSubview(returnButton)
+        view.addSubview(horizontalStackViewButton)
     }
     
     private func addElementInStack() {
@@ -80,6 +95,21 @@ class RegisterViewController: UIViewController {
         verticalStackViewTF.addArrangedSubview(surnameTF)
         verticalStackViewTF.addArrangedSubview(emailTF)
         verticalStackViewTF.addArrangedSubview(passwordTF)
+        
+        horizontalStackViewButton.addArrangedSubview(saveButton)
+        horizontalStackViewButton.addArrangedSubview(cancelButton)
+    }
+    
+    private func createButton(withTitle title: String, action: UIAction) -> UIButton {
+        var attributes = AttributeContainer()
+        attributes.font = UIFont.boldSystemFont(ofSize: 18)
+        
+        var buttonConfiguration = UIButton.Configuration.filled()
+        buttonConfiguration.baseBackgroundColor = .black
+        buttonConfiguration.baseForegroundColor = .white
+        buttonConfiguration.attributedTitle = AttributedString(title, attributes: attributes)
+        
+        return UIButton(configuration: buttonConfiguration, primaryAction: action)
     }
     
     private func createTextField(
@@ -104,19 +134,21 @@ class RegisterViewController: UIViewController {
 
     private func setConstraints() {
         NSLayoutConstraint.activate([
-        verticalStackViewTF.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
-        verticalStackViewTF.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
-        verticalStackViewTF.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
+
+            
+        horizontalStackViewButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+        horizontalStackViewButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+        horizontalStackViewButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            
+            
+        verticalStackViewTF.topAnchor.constraint(lessThanOrEqualTo: horizontalStackViewButton.bottomAnchor, constant: 50),
+        verticalStackViewTF.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
         verticalStackViewTF.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -500),
-        
-        returnButton.topAnchor.constraint(equalTo: verticalStackViewTF.bottomAnchor, constant: 210),
-        returnButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 120),
-        returnButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -120),
-        returnButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -250)
+        verticalStackViewTF.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: -100),
+       
     ])
     }
-    
-    @objc func touch() {
+   @objc func touch() {
      dismiss(animated: true)
     }
 }
@@ -143,43 +175,43 @@ extension RegisterViewController: UITextFieldDelegate {
   }
 }
 
-extension RegisterViewController {
-    private func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(willShow),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil)
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(willHide),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil)
-    }
-    
-    private func removeKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(
-            self,
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil)
-        
-        NotificationCenter.default.removeObserver(
-            self,
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil)
-    }
-    
-    @objc func willShow(_ notification: Notification) {
-        let userInfo = notification.userInfo
-        guard let _ = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else
-        { return }
-        
-        scrollView?.contentOffset = CGPoint.zero
-    }
-    
-    @objc func willHide() {
-        scrollView?.contentOffset = CGPoint.zero
-    }
-    
-}
+//extension RegisterViewController {
+//    private func registerForKeyboardNotifications() {
+//        NotificationCenter.default.addObserver(
+//            self,
+//            selector: #selector(willShow),
+//            name: UIResponder.keyboardWillShowNotification,
+//            object: nil)
+//
+//        NotificationCenter.default.addObserver(
+//            self,
+//            selector: #selector(willHide),
+//            name: UIResponder.keyboardWillHideNotification,
+//            object: nil)
+//    }
+//
+//    private func removeKeyboardNotifications() {
+//        NotificationCenter.default.removeObserver(
+//            self,
+//            name: UIResponder.keyboardWillShowNotification,
+//            object: nil)
+//
+//        NotificationCenter.default.removeObserver(
+//            self,
+//            name: UIResponder.keyboardWillHideNotification,
+//            object: nil)
+//    }
+//
+//    @objc func willShow(_ notification: Notification) {
+//        let userInfo = notification.userInfo
+//        guard let _ = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else
+//        { return }
+//
+//        scrollView?.contentOffset = CGPoint.zero
+//    }
+//
+//    @objc func willHide() {
+//        scrollView?.contentOffset = CGPoint.zero
+//    }
+//
+//}

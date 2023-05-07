@@ -134,10 +134,11 @@ class MainViewController: UIViewController {
             horizontalStackViewButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
             horizontalStackViewButton.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -690),
             
-            returnButton.topAnchor.constraint(equalTo: horizontalStackViewButton.bottomAnchor, constant: 210),
-            returnButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 120),
-            returnButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -120),
-            returnButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -250)
+            
+            returnButton.topAnchor.constraint(lessThanOrEqualTo: horizontalStackViewButton.bottomAnchor, constant: 110),
+            returnButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            returnButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: 70),
+
         ])
     }
     
@@ -191,13 +192,9 @@ class MainViewController: UIViewController {
 //            settingVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
 //            present(settingVC, animated: true)
             //        navigationController?.pushViewController(settingVC, animated: true)
-            let tabBarVC = TabBarController()
-            
-            let settingVC = SettingViewController()
-            let basketVC = BasketTableViewController()
-            
-            tabBarVC.setViewControllers([settingVC, basketVC], animated: false)
-            tabBarVC.modalPresentationStyle = .fullScreen
+            let tabBarVC = CreateTabBarController()
+            tabBarVC.userName = userNameTF.text ?? "😢"
+//            tabBarVC.modalPresentationStyle = .fullScreen
             present(tabBarVC , animated: true)
             
             userNameTF.text = ""

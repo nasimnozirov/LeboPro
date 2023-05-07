@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		484B640129FAF3F9003000B8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484B640029FAF3F9003000B8 /* TabBarController.swift */; };
+		484B640129FAF3F9003000B8 /* CreateTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484B640029FAF3F9003000B8 /* CreateTabBarController.swift */; };
 		484B640729FBE047003000B8 /* BasketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484B640629FBE047003000B8 /* BasketTableViewController.swift */; };
 		4876375729EC634E00527A77 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4876375629EC634E00527A77 /* RegisterViewController.swift */; };
 		4892F4F929C63DD500AF5C92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F4F829C63DD500AF5C92 /* AppDelegate.swift */; };
@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		484B640029FAF3F9003000B8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		484B640029FAF3F9003000B8 /* CreateTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTabBarController.swift; sourceTree = "<group>"; };
 		484B640629FBE047003000B8 /* BasketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewController.swift; sourceTree = "<group>"; };
 		4876375629EC634E00527A77 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4892F4F529C63DD500AF5C92 /* LeboPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeboPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +60,7 @@
 				4892F50C29D20D1000AF5C92 /* SettingViewController.swift */,
 				484B640629FBE047003000B8 /* BasketTableViewController.swift */,
 				4876375629EC634E00527A77 /* RegisterViewController.swift */,
-				484B640029FAF3F9003000B8 /* TabBarController.swift */,
+				484B640029FAF3F9003000B8 /* CreateTabBarController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -179,7 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				484B640129FAF3F9003000B8 /* TabBarController.swift in Sources */,
+				484B640129FAF3F9003000B8 /* CreateTabBarController.swift in Sources */,
 				4892F4FD29C63DD500AF5C92 /* MainViewController.swift in Sources */,
 				4892F4F929C63DD500AF5C92 /* AppDelegate.swift in Sources */,
 				484B640729FBE047003000B8 /* BasketTableViewController.swift in Sources */,
