@@ -15,4 +15,16 @@ struct User {
     static func getUser() -> User {
         User(userName: "write your name!", password: ".")
     }
+    
+    
+}
+
+struct Basket {
+    var product: [String]
+    
+    static func getProduct() -> Basket {
+        Basket(product: ["MERCEDES", "BMW", "FERRARI", "JAGUAR", "MAZDA", "MUSTANG", "TESLA", "VOLKSWAGEN"])
+    }
+    
+    
 }

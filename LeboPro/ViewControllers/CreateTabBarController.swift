@@ -7,35 +7,27 @@
 
 import UIKit
 
-class CreateTabBarController: UIViewController {
-
+class TabBarController: UITabBarController {
+    
     var userName = ""
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createTabBar()
-        
-    }
-    
-    private func createTabBar() {
-        let tabBar = UITabBarController()
-        tabBar.tabBar.tintColor = .white
-        tabBar.tabBar.backgroundColor = .black
-        let settingVC = SettingViewController()
-        settingVC.title = "Провиль"
-        settingVC.tabBarItem.image = UIImage(systemName: "person.fill")
-        settingVC.tabBarItem.selectedImage = UIImage(systemName: "person.fill")
-        settingVC.userName = userName
 
+        view.backgroundColor = .green
+        let topVC = TopViewController()
+        let catalogVC = CatalogTableViewController()
         let basketVC = BasketTableViewController()
-        basketVC.title = "Корзина"
-        basketVC.tabBarItem.image = UIImage(systemName: "basket.fill")
-        basketVC.tabBarItem.selectedImage = UIImage(systemName: "basket.fill")
-
-     tabBar.viewControllers = [settingVC, basketVC]
-        
-//       let controllerArray = [settingVC, basketVC]
-//       tabBar.viewControllers = controllerArray.map{ UINavigationController.init(rootViewController: $0)}
-        view.addSubview(tabBar.view)
+        let favoriteVC = FavoriteViewController()
+        let settingVC = SettingViewController()
+        let navigation = UINavigationController(rootViewController: basketVC)
+        viewControllers = [topVC, catalogVC, navigation, favoriteVC, settingVC,]
+        tabBar.backgroundColor = .white
+        topVC.tabBarItem = UITabBarItem(title: "Главное", image: UIImage(systemName: "house.fill"), tag: 0)
+        catalogVC.tabBarItem = UITabBarItem(title: "Каталог", image: UIImage(systemName: "list.clipboard.fill"), tag: 1)
+        basketVC.tabBarItem = UITabBarItem(title: "Карзина", image: UIImage(systemName: "basket.fill"), tag: 2)
+        favoriteVC.tabBarItem = UITabBarItem(title: "Любимые", image: UIImage(systemName: "heart.fill"), tag: 3)
+        settingVC.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person.fill"), tag: 4)
     }
 }

@@ -51,7 +51,7 @@ class MainViewController: UIViewController {
     
     
     private lazy var passwordButton: UIButton = {
-        createButton(withTitle: "Пароль", action: UIAction { _ in
+        createButton(withTitle: "Забыли пароль?", action: UIAction { _ in
             self.showAlert(title: "My password is", message: self.user.password)
         })
     }()
@@ -82,10 +82,10 @@ class MainViewController: UIViewController {
     private let horizontalStackViewButton: UIStackView = {
         let verticalStackView = UIStackView()
         verticalStackView.alignment = .fill
-        verticalStackView.distribution = .fill
+        verticalStackView.distribution = .fillEqually
         verticalStackView.axis = .horizontal
-        verticalStackView.spacing = 20
-        verticalStackView.backgroundColor = .black
+        verticalStackView.spacing = 10
+        verticalStackView.backgroundColor = .white
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         
         return verticalStackView
@@ -130,8 +130,8 @@ class MainViewController: UIViewController {
             verticalStackViewTF.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -600),
             
             horizontalStackViewButton.topAnchor.constraint(equalTo: verticalStackViewTF.bottomAnchor, constant: 10),
-            horizontalStackViewButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
-            horizontalStackViewButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
+            horizontalStackViewButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            horizontalStackViewButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             horizontalStackViewButton.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -690),
             
             
@@ -172,6 +172,7 @@ class MainViewController: UIViewController {
         buttonConfiguration.baseBackgroundColor = .black
         buttonConfiguration.baseForegroundColor = .white
         buttonConfiguration.titleAlignment = .leading
+        
         buttonConfiguration.attributedTitle = AttributedString(title, attributes: attributes)
         
         return UIButton(configuration: buttonConfiguration, primaryAction: action)
@@ -186,17 +187,17 @@ class MainViewController: UIViewController {
     // Mark: -  #selector function
     @objc func goToSettingVC() {
         if self.passwordTF.text == user.password {
-//            let settingVC = SettingViewController()
-//            delegate = settingVC
-//            delegate?.upData(user: userNameTF.text ?? "😢")
+        
 //            settingVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
 //            present(settingVC, animated: true)
             //        navigationController?.pushViewController(settingVC, animated: true)
-            let tabBarVC = CreateTabBarController()
-            tabBarVC.userName = userNameTF.text ?? "😢"
-//            tabBarVC.modalPresentationStyle = .fullScreen
-            present(tabBarVC , animated: true)
+          
+            let tabBarVC = TabBarController()
+            tabBarVC.modalPresentationStyle = .fullScreen
             
+            tabBarVC.userName = userNameTF.text ?? "😢"
+
+            present(tabBarVC , animated: true)
             userNameTF.text = ""
             passwordTF.text = ""
         } else {

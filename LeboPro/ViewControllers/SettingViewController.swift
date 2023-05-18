@@ -13,6 +13,7 @@ class SettingViewController: UIViewController {
     // Mark: - Public property
     var userName = ""
     
+    
     // Mark: - Public property
     private var dismissButton: UIButton = {
       lazy var button = UIButton()
@@ -25,11 +26,12 @@ class SettingViewController: UIViewController {
     }()
     
     private lazy var emojiLabel: UILabel = {
-        aditLabel(fond: UIFont.systemFont(ofSize: 60), text: "🌚💋👀")
+       return aditLabel(fond: UIFont.systemFont(ofSize: 60), text: "🌚💋👀")
     }()
     
    private lazy var userLabel: UILabel = {
-            aditLabel(fond: UIFont.systemFont(ofSize: 30), text:" Welcome \(userName)!")
+       print(userName)
+       return aditLabel(fond: UIFont.systemFont(ofSize: 30), text:" Welcome \(userName)!")
     }()
     
     private let verticalStackView: UIStackView = {
@@ -46,10 +48,9 @@ class SettingViewController: UIViewController {
     // Mark: - Override function
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = .gray
         view.addSubview(verticalStackView)
         view.addSubview(dismissButton)
-        title = "Профиль"
         addElementInStack()
         fixToConstraint()
         dismissButton.addTarget(self, action: #selector(ouch), for: .touchUpInside)
