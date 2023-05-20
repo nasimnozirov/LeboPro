@@ -85,7 +85,7 @@ class MainViewController: UIViewController {
         verticalStackView.distribution = .fillEqually
         verticalStackView.axis = .horizontal
         verticalStackView.spacing = 10
-        verticalStackView.backgroundColor = .white
+        verticalStackView.backgroundColor = .black
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         
         return verticalStackView

@@ -21,8 +21,9 @@ class TabBarController: UITabBarController {
         let basketVC = BasketTableViewController()
         let favoriteVC = FavoriteViewController()
         let settingVC = SettingViewController()
-        let navigation = UINavigationController(rootViewController: basketVC)
-        viewControllers = [topVC, catalogVC, navigation, favoriteVC, settingVC,]
+        let basketNavigation = UINavigationController(rootViewController: basketVC)
+        let favoriteNavigation = UINavigationController(rootViewController: favoriteVC)
+        viewControllers = [topVC, catalogVC, basketNavigation , favoriteNavigation, settingVC,]
         tabBar.backgroundColor = .white
         topVC.tabBarItem = UITabBarItem(title: "Главное", image: UIImage(systemName: "house.fill"), tag: 0)
         catalogVC.tabBarItem = UITabBarItem(title: "Каталог", image: UIImage(systemName: "list.clipboard.fill"), tag: 1)

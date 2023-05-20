@@ -7,21 +7,20 @@
 
 import UIKit
 
+
 class BasketTableViewController: UITableViewController {
     
     private let model = Basket.getProduct()
     
-    private var imageDict: [String: UIImage] = [:]
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Корзина"
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        navigationItem.largeTitleDisplayMode = .always
+       
     }
     
     // MARK: - Table view data source
