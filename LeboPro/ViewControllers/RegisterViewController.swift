@@ -14,35 +14,47 @@ class RegisterViewController: UIViewController {
     var scrollView: UIScrollView?
     
     // Mark: - Public property
-    private lazy var nameTF: UITextField = {
-         createTextField(placeholder: "Name", isSecureTextEntry: false, returnKeyType: .next)
-     }()
+    private let nameTF = CustomTextField(
+        placeholder: "Имя",
+        isSecureTextEntry: false,
+        returnKeyType: .next
+    )
 
-    private lazy var surnameTF: UITextField = {
-         createTextField(placeholder: "Surname", isSecureTextEntry: false, returnKeyType: .next)
-     }()
+    private let surnameTF = CustomTextField(
+        placeholder: "Фамилия",
+        isSecureTextEntry: false,
+        returnKeyType: .next
+    )
      
-    private lazy var emailTF: UITextField = {
-         createTextField(placeholder: "Email", isSecureTextEntry: false, returnKeyType: .next)
-     }()
+    private let emailTF = CustomTextField(
+        placeholder: "Почта",
+        isSecureTextEntry: false,
+        returnKeyType: .next
+    )
     
-    private lazy var passwordTF: UITextField = {
-         createTextField(placeholder: "Password", isSecureTextEntry: false, returnKeyType: .done)
-     }()
+    private lazy var passwordTF = CustomTextField(
+        placeholder: "Пароль",
+        isSecureTextEntry: false,
+        returnKeyType: .done
+    )
     
-    private lazy var saveButton: UIButton = {
-        createButton(withTitle: "Сахранить", action: UIAction { _ in
-            self.touch()
-        })
-        
-    }()
+    private let saveButton = CustomButton(
+        withTitle: "Сахранить",
+        textAlignment: .center,
+        font: 16,
+        addTarget: self,
+        action: #selector(touch),
+        forTarget: .touchUpInside
+    )
     
-    private lazy var cancelButton: UIButton = {
-        createButton(withTitle: "Отмена", action: UIAction { _ in
-            self.touch()
-        })
-        
-    }()
+    private let cancelButton = CustomButton(
+        withTitle: "Отменить",
+        textAlignment: .center,
+        font: 16,
+        addTarget: self,
+        action: #selector(touch),
+        forTarget: .touchUpInside)
+    
 
     private lazy var verticalStackViewTF: UIStackView = {
         let verticalStackView = UIStackView()
@@ -98,38 +110,6 @@ class RegisterViewController: UIViewController {
         
         horizontalStackViewButton.addArrangedSubview(saveButton)
         horizontalStackViewButton.addArrangedSubview(cancelButton)
-    }
-    
-    private func createButton(withTitle title: String, action: UIAction) -> UIButton {
-        var attributes = AttributeContainer()
-        attributes.font = UIFont.boldSystemFont(ofSize: 18)
-        
-        var buttonConfiguration = UIButton.Configuration.filled()
-        buttonConfiguration.baseBackgroundColor = .black
-        buttonConfiguration.baseForegroundColor = .white
-        buttonConfiguration.attributedTitle = AttributedString(title, attributes: attributes)
-        
-        return UIButton(configuration: buttonConfiguration, primaryAction: action)
-    }
-    
-    private func createTextField(
-        placeholder: String,
-        isSecureTextEntry: Bool,
-        returnKeyType: UIReturnKeyType) -> UITextField {
-            
-        let textField = UITextField()
-        textField.textColor = .black
-        textField.backgroundColor = .white
-//        textField.textAlignment = .left
-        textField.placeholder = placeholder
-        textField.borderStyle = .none
-        textField.enablesReturnKeyAutomatically = true
-        textField.isSecureTextEntry = isSecureTextEntry
-        textField.autocorrectionType = .no
-        textField.spellCheckingType = .no
-        textField.returnKeyType = returnKeyType
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
     }
 
     private func setConstraints() {

@@ -7,66 +7,57 @@
 
 import UIKit
 
-// Mark: - Protocol delegate
-protocol TransmissionOfInformationDelegate {
-    func upData(user: String)
-}
-
 // Mark: - Class MainViewController
 
 class MainViewController: UIViewController {
     
     // Mark: - Public property
     var scrollView: UIScrollView?
-    var delegate: TransmissionOfInformationDelegate?
+    
     
     // Mark: - Public property
     private let user = User.getUser()
     
-    private lazy var userNameTF: UITextField = {
-        createTextField(
-            textColor: .black,
-            textAlignment: .left,
-            placeholder: "Имя пользователя",
-            isSecureTextEntry: false,
-            returnKeyType: .next
-        )
-    }()
+    private let userNameTF = CustomTextField(
+        placeholder: "Имя пользователя",
+        isSecureTextEntry: false,
+        returnKeyType: .next
+    )
     
-    private lazy var passwordTF: UITextField = {
-        createTextField(
-            textColor: .black,
-            textAlignment: .left,
-            placeholder: "Пароль",
-            isSecureTextEntry: true,
-            returnKeyType: .done
-        )
-    }()
-    
-    private lazy var userNameButton: UIButton = {
-        createButton(withTitle: "Зарегистрироваться", action: UIAction { _ in
-            self.modalTransitionInRegisterVC()
-        })
-    }()
+    private let passwordTF = CustomTextField(
+        placeholder: "Пароль",
+        isSecureTextEntry: false,
+        returnKeyType: .done
+    )
+
+
+    private let ForgotPasswordButton = CustomButton(
+        withTitle: "Забыли пароль?",
+        textAlignment: .left,
+        font: 12,
+        addTarget: self,
+        action:  #selector(modalTransitionInRegisterVC),
+        forTarget: .touchUpInside)
     
     
-    private lazy var passwordButton: UIButton = {
-        createButton(withTitle: "Забыли пароль?", action: UIAction { _ in
-            self.showAlert(title: "My password is", message: self.user.password)
-        })
-    }()
+    private let registerButton = CustomButton(
+        withTitle: "Зарегистрироваться",
+        textAlignment: .right,
+        font: 12,
+        addTarget: self,
+        action: #selector(modalTransitionInRegisterVC),
+        forTarget: .touchUpInside
+    )
     
-    private lazy var returnButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setTitle("Продолжить", for: .normal)
-        //button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
-        button.backgroundColor = .black
-        button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
-        button.translatesAutoresizingMaskIntoConstraints  = false
-        button.addTarget(self, action: #selector(goToSettingVC), for: .touchUpInside)
-        return button
-    }()
+    private let returnButton = CustomButton(
+        withTitle: "Продолжить",
+        textAlignment: .center,
+        font: 25,
+        addTarget: self,
+        action: #selector(goToSettingVC),
+        forTarget: .touchUpInside
+    )
+    
     
     private let verticalStackViewTF: UIStackView = {
         let verticalStackView = UIStackView()
@@ -82,9 +73,9 @@ class MainViewController: UIViewController {
     private let horizontalStackViewButton: UIStackView = {
         let verticalStackView = UIStackView()
         verticalStackView.alignment = .fill
-        verticalStackView.distribution = .fillEqually
+        verticalStackView.distribution = .fill
         verticalStackView.axis = .horizontal
-        verticalStackView.spacing = 10
+        verticalStackView.spacing = 60
         verticalStackView.backgroundColor = .black
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -112,73 +103,35 @@ class MainViewController: UIViewController {
     private func addElementInStack() {
         verticalStackViewTF.addArrangedSubview(userNameTF)
         verticalStackViewTF.addArrangedSubview(passwordTF)
-        horizontalStackViewButton.addArrangedSubview(userNameButton)
-        horizontalStackViewButton.addArrangedSubview(passwordButton)
+        horizontalStackViewButton.addArrangedSubview(ForgotPasswordButton)
+        horizontalStackViewButton.addArrangedSubview(registerButton)
     }
     
     private func setConstraints() {
-        passwordButton.translatesAutoresizingMaskIntoConstraints = false
-        userNameButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            passwordButton.widthAnchor.constraint(equalToConstant: 200),
-            userNameButton.widthAnchor.constraint(equalToConstant: 140),
+            registerButton.widthAnchor.constraint(equalToConstant: 190),
+            ForgotPasswordButton.widthAnchor.constraint(equalToConstant: 100),
             
             verticalStackViewTF.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
             verticalStackViewTF.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
             verticalStackViewTF.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
-            verticalStackViewTF.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -600),
+            verticalStackViewTF.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -670),
             
-            horizontalStackViewButton.topAnchor.constraint(equalTo: verticalStackViewTF.bottomAnchor, constant: 10),
-            horizontalStackViewButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            horizontalStackViewButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            horizontalStackViewButton.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -690),
+            horizontalStackViewButton.topAnchor.constraint(equalTo: verticalStackViewTF.bottomAnchor, constant: 0),
+            horizontalStackViewButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
+            horizontalStackViewButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
+            horizontalStackViewButton.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -760),
             
             
             returnButton.topAnchor.constraint(lessThanOrEqualTo: horizontalStackViewButton.bottomAnchor, constant: 110),
             returnButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            returnButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: 70),
-
+            returnButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 100),
+            returnButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -100)
         ])
     }
     
-    private func createTextField(
-        textColor: UIColor,
-        textAlignment: NSTextAlignment,
-        placeholder: String,
-        isSecureTextEntry: Bool,
-        returnKeyType: UIReturnKeyType) -> UITextField {
-            
-            let textField = UITextField()
-            textField.textColor = textColor
-            textField.backgroundColor = .white
-            textField.textAlignment = textAlignment
-            textField.placeholder = placeholder
-            textField.borderStyle = .roundedRect
-            textField.enablesReturnKeyAutomatically = true
-            textField.isSecureTextEntry = isSecureTextEntry
-            textField.autocorrectionType = .no
-            textField.spellCheckingType = .no
-            textField.returnKeyType = returnKeyType
-            textField.translatesAutoresizingMaskIntoConstraints = false
-            return textField
-        }
-    
-    private func createButton(withTitle title: String, action: UIAction) -> UIButton {
-        var attributes = AttributeContainer()
-        attributes.font = UIFont.boldSystemFont(ofSize: 18)
-        
-        var buttonConfiguration = UIButton.Configuration.filled()
-        buttonConfiguration.baseBackgroundColor = .black
-        buttonConfiguration.baseForegroundColor = .white
-        buttonConfiguration.titleAlignment = .leading
-        
-        buttonConfiguration.attributedTitle = AttributedString(title, attributes: attributes)
-        
-        return UIButton(configuration: buttonConfiguration, primaryAction: action)
-    }
-    
-    private func modalTransitionInRegisterVC() {
+    @objc func modalTransitionInRegisterVC() {
         let registerVC = RegisterViewController()
         registerVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         present(registerVC, animated: true)
