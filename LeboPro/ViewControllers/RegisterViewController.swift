@@ -41,19 +41,14 @@ class RegisterViewController: UIViewController {
     private let saveButton = CustomButton(
         withTitle: "Сахранить",
         textAlignment: .center,
-        font: 16,
-        addTarget: self,
-        action: #selector(touch),
-        forTarget: .touchUpInside
+        font: 16
     )
     
     private let cancelButton = CustomButton(
         withTitle: "Отменить",
         textAlignment: .center,
-        font: 16,
-        addTarget: self,
-        action: #selector(touch),
-        forTarget: .touchUpInside)
+        font: 16
+    )
     
 
     private lazy var verticalStackViewTF: UIStackView = {
@@ -100,6 +95,11 @@ class RegisterViewController: UIViewController {
     private func addElementInView() {
         view.addSubview(verticalStackViewTF)
         view.addSubview(horizontalStackViewButton)
+    }
+    
+    private func addTargetInButton() {
+        saveButton.addTarget(self, action: #selector(touch), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(touch), for: .touchUpInside)
     }
     
     private func addElementInStack() {

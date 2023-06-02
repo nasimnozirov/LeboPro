@@ -12,10 +12,7 @@ class CustomButton: UIButton {
     init(
          withTitle title: String,
          textAlignment: NSTextAlignment,
-         font: CGFloat,
-         addTarget target: Any?,
-         action: Selector,
-         forTarget: UIControl.Event
+         font: CGFloat
     ) {
         
         let frame = CGRect(x: 0, y: 0, width: 100, height: 200)
@@ -25,7 +22,6 @@ class CustomButton: UIButton {
         titleLabel?.textAlignment = textAlignment
         titleLabel?.font = UIFont.systemFont(ofSize: font)
         self.setTitle(title, for: .normal)
-        addTarget(target, action: action, for: forTarget)
         translatesAutoresizingMaskIntoConstraints  = false
         
         

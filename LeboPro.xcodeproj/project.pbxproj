@@ -21,7 +21,7 @@
 		4897233A2A129FBC00679428 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489723392A129FBC00679428 /* FavoriteViewController.swift */; };
 		4897233D2A1A84CF00679428 /* CastomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4897233C2A1A84CF00679428 /* CastomTextField.swift */; };
 		4897233F2A1A994200679428 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4897233E2A1A994200679428 /* CustomButton.swift */; };
-		489723412A1D2B1300679428 /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489723402A1D2B1300679428 /* CustomStackView.swift */; };
+		489723432A2513F700679428 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489723422A2513F700679428 /* CustomLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +42,7 @@
 		489723392A129FBC00679428 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		4897233C2A1A84CF00679428 /* CastomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomTextField.swift; sourceTree = "<group>"; };
 		4897233E2A1A994200679428 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		489723402A1D2B1300679428 /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
+		489723422A2513F700679428 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +131,7 @@
 			children = (
 				4897233C2A1A84CF00679428 /* CastomTextField.swift */,
 				4897233E2A1A994200679428 /* CustomButton.swift */,
-				489723402A1D2B1300679428 /* CustomStackView.swift */,
+				489723422A2513F700679428 /* CustomLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,10 +206,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4897233F2A1A994200679428 /* CustomButton.swift in Sources */,
+				489723432A2513F700679428 /* CustomLabel.swift in Sources */,
 				4897233D2A1A84CF00679428 /* CastomTextField.swift in Sources */,
 				4897233A2A129FBC00679428 /* FavoriteViewController.swift in Sources */,
 				484B640129FAF3F9003000B8 /* CreateTabBarController.swift in Sources */,
-				489723412A1D2B1300679428 /* CustomStackView.swift in Sources */,
 				4892F4FD29C63DD500AF5C92 /* MainViewController.swift in Sources */,
 				4892F4F929C63DD500AF5C92 /* AppDelegate.swift in Sources */,
 				484B640729FBE047003000B8 /* BasketTableViewController.swift in Sources */,

@@ -8,8 +8,10 @@
 import UIKit
 
 class FavoriteViewController: UITableViewController  {
+    
+    private var imageDict: [String: UIImage] = [:]
 
-    private let model = Basket.getProduct()
+    private var model = Basket.getProduct()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,9 @@ class FavoriteViewController: UITableViewController  {
         var configuration = cell.defaultContentConfiguration()
         let product = model.product[indexPath.row]
         configuration.text = product
+        if let image = imageDict[product] {
+            configuration.image = image
+        }
         configuration.textProperties.alignment = .natural
         cell.contentConfiguration = configuration
         return cell

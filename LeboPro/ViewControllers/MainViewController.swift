@@ -34,28 +34,20 @@ class MainViewController: UIViewController {
     private let ForgotPasswordButton = CustomButton(
         withTitle: "Забыли пароль?",
         textAlignment: .left,
-        font: 12,
-        addTarget: self,
-        action:  #selector(modalTransitionInRegisterVC),
-        forTarget: .touchUpInside)
+        font: 12
+    )
     
     
     private let registerButton = CustomButton(
         withTitle: "Зарегистрироваться",
         textAlignment: .right,
-        font: 12,
-        addTarget: self,
-        action: #selector(modalTransitionInRegisterVC),
-        forTarget: .touchUpInside
+        font: 12
     )
     
     private let returnButton = CustomButton(
         withTitle: "Продолжить",
         textAlignment: .center,
-        font: 25,
-        addTarget: self,
-        action: #selector(goToSettingVC),
-        forTarget: .touchUpInside
+        font: 25
     )
     
     
@@ -75,7 +67,7 @@ class MainViewController: UIViewController {
         verticalStackView.alignment = .fill
         verticalStackView.distribution = .fill
         verticalStackView.axis = .horizontal
-        verticalStackView.spacing = 60
+        verticalStackView.spacing = 50
         verticalStackView.backgroundColor = .black
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -85,19 +77,26 @@ class MainViewController: UIViewController {
     // Mark: - Override function
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = .red
         addSubview()
         addElementInStack()
         setConstraints()
         userNameTF.delegate = self
         passwordTF.delegate = self
-        
+    
     }
     // Mark: - Private function
     private func addSubview() {
+        addTargetInButton()
         view.addSubview(verticalStackViewTF)
         view.addSubview(returnButton)
         view.addSubview(horizontalStackViewButton)
+    }
+    
+    private func addTargetInButton() {
+        ForgotPasswordButton.addTarget(self, action: #selector(modalTransitionInRegisterVC), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(modalTransitionInRegisterVC), for: .touchUpInside)
+        returnButton.addTarget(self, action: #selector(goToSettingVC), for: .touchUpInside)
     }
     
     private func addElementInStack() {
@@ -116,13 +115,12 @@ class MainViewController: UIViewController {
             verticalStackViewTF.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
             verticalStackViewTF.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
             verticalStackViewTF.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
-            verticalStackViewTF.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -670),
+            verticalStackViewTF.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -640),
             
-            horizontalStackViewButton.topAnchor.constraint(equalTo: verticalStackViewTF.bottomAnchor, constant: 0),
+            horizontalStackViewButton.topAnchor.constraint(equalTo: verticalStackViewTF.bottomAnchor, constant: 10),
             horizontalStackViewButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
             horizontalStackViewButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
-            horizontalStackViewButton.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -760),
-            
+            horizontalStackViewButton.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -750),
             
             returnButton.topAnchor.constraint(lessThanOrEqualTo: horizontalStackViewButton.bottomAnchor, constant: 110),
             returnButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
