@@ -29,8 +29,8 @@ class MainViewController: UIViewController {
         isSecureTextEntry: false,
         returnKeyType: .done
     )
-
-
+    
+    
     private let ForgotPasswordButton = CustomButton(
         withTitle: "Забыли пароль?",
         textAlignment: .right,
@@ -49,7 +49,6 @@ class MainViewController: UIViewController {
         textAlignment: .center,
         font: 25
     )
-    
     
     private let verticalStackViewTF: UIStackView = {
         let verticalStackView = UIStackView()
@@ -83,7 +82,7 @@ class MainViewController: UIViewController {
         setConstraints()
         userNameTF.delegate = self
         passwordTF.delegate = self
-    
+        
     }
     // Mark: - Private function
     private func addSubview() {
@@ -118,12 +117,6 @@ class MainViewController: UIViewController {
             verticalStackViewTF.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
             verticalStackViewTF.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
             verticalStackViewTF.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -640),
-            
-//            horizontalStackViewButton.topAnchor.constraint(equalTo: verticalStackViewTF.bottomAnchor, constant: 10),
-//            horizontalStackViewButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
-//            horizontalStackViewButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
-//            horizontalStackViewButton.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -750),
-            
             returnButton.topAnchor.constraint(lessThanOrEqualTo: horizontalStackViewButton.bottomAnchor, constant: 110),
             returnButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             returnButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 100),
@@ -140,16 +133,16 @@ class MainViewController: UIViewController {
     // Mark: -  #selector function
     @objc func goToSettingVC() {
         if self.passwordTF.text == user.password {
-        
-//            settingVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-//            present(settingVC, animated: true)
+            
+            //            settingVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            //            present(settingVC, animated: true)
             //        navigationController?.pushViewController(settingVC, animated: true)
-          
+            
             let tabBarVC = TabBarController()
             tabBarVC.modalPresentationStyle = .fullScreen
             
             tabBarVC.userName = userNameTF.text ?? "😢"
-
+            
             present(tabBarVC , animated: true)
             userNameTF.text = ""
             passwordTF.text = ""
@@ -159,10 +152,10 @@ class MainViewController: UIViewController {
     }
     
     @objc func touch() {
-      dismiss(animated: true)
-     }
+        dismiss(animated: true)
+    }
 }
- 
+
 // Mark: -  UIAlertController
 extension MainViewController {
     private func showAlert(title: String, message: String) {

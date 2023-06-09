@@ -13,10 +13,9 @@ class SettingViewController: UIViewController {
     // Mark: - Public property
     var userName = ""
     
-    
     // Mark: - Public property
     private var dismissButton: UIButton = {
-      lazy var button = UIButton()
+        lazy var button = UIButton()
         button.setTitle("Вернуться", for: .normal)
         button.backgroundColor = .black
         button.layer.cornerRadius = 5
@@ -26,12 +25,12 @@ class SettingViewController: UIViewController {
     }()
     
     private lazy var emojiLabel: UILabel = {
-       return aditLabel(fond: UIFont.systemFont(ofSize: 60), text: "🌚💋👀")
+        return aditLabel(fond: UIFont.systemFont(ofSize: 60), text: "🌚💋👀")
     }()
     
-   private lazy var userLabel: UILabel = {
-       print(userName)
-       return aditLabel(fond: UIFont.systemFont(ofSize: 30), text:" Welcome \(userName)!")
+    private lazy var userLabel: UILabel = {
+        print(userName)
+        return aditLabel(fond: UIFont.systemFont(ofSize: 30), text:" Welcome \(userName)!")
     }()
     
     private let verticalStackView: UIStackView = {
@@ -91,9 +90,8 @@ class SettingViewController: UIViewController {
     
     // Mark: -  #selector function
     @objc func ouch() {
-     dismiss(animated: true)
+        dismiss(animated: true)
     }
-
 }
 
 

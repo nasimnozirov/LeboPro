@@ -20,13 +20,13 @@ class RegisterViewController: UIViewController {
         isSecureTextEntry: false,
         returnKeyType: .next
     )
-
+    
     private let surnameTF = CustomTextField(
         placeholder: "Фамилия",
         isSecureTextEntry: false,
         returnKeyType: .next
     )
-     
+    
     private let emailTF = CustomTextField(
         placeholder: "Почта",
         isSecureTextEntry: false,
@@ -51,7 +51,7 @@ class RegisterViewController: UIViewController {
         font: 16
     )
     
-
+    
     private lazy var verticalStackViewTF: UIStackView = {
         let verticalStackView = UIStackView()
         verticalStackView.alignment = .fill
@@ -82,7 +82,7 @@ class RegisterViewController: UIViewController {
         setConstraints()
         addElementInStack()
         delegateTF()
-       
+        
     }
     
     // Mark: - Private function
@@ -114,25 +114,25 @@ class RegisterViewController: UIViewController {
         horizontalStackViewButton.addArrangedSubview(saveButton)
         horizontalStackViewButton.addArrangedSubview(cancelButton)
     }
-
+    
     private func setConstraints() {
         NSLayoutConstraint.activate([
-
-            
-        horizontalStackViewButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-        horizontalStackViewButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-        horizontalStackViewButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             
             
-        verticalStackViewTF.topAnchor.constraint(lessThanOrEqualTo: horizontalStackViewButton.bottomAnchor, constant: 50),
-        verticalStackViewTF.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-        verticalStackViewTF.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -500),
-        verticalStackViewTF.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: -100),
-       
-    ])
+            horizontalStackViewButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            horizontalStackViewButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            horizontalStackViewButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            
+            
+            verticalStackViewTF.topAnchor.constraint(lessThanOrEqualTo: horizontalStackViewButton.bottomAnchor, constant: 50),
+            verticalStackViewTF.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            verticalStackViewTF.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -500),
+            verticalStackViewTF.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: -100),
+            
+        ])
     }
     
-   
+    
 }
 
 // Mark: - extension UITextFieldDelegate (creat keyword)
@@ -153,8 +153,8 @@ extension RegisterViewController: UITextFieldDelegate {
         default:
             mainVC.touch()
         }
-     return true
-  }
+        return true
+    }
 }
 
 //extension RegisterViewController {

@@ -8,6 +8,7 @@
 import UIKit
 
 class CatalogTableViewController: UITableViewController {
+    
     private var model = Basket.getProduct()
     private var viewNavBar = UIView()
 
@@ -54,9 +55,9 @@ class CatalogTableViewController: UITableViewController {
            if let image = UIImage(named: product){
                configuration.image = image
            }
+           
            configuration.textProperties.alignment = .natural
            configuration.imageProperties.cornerRadius = tableView.rowHeight / 2
-           
            
            cell.contentConfiguration = configuration
            
@@ -81,6 +82,7 @@ class CatalogTableViewController: UITableViewController {
        override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
            return .none
        }
+    
        // чтобы ячейки не сдивигались
        override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
            return false
@@ -88,13 +90,9 @@ class CatalogTableViewController: UITableViewController {
        
        private func fixToConstraint() {
            NSLayoutConstraint.activate([
-             
-
               catalog.heightAnchor.constraint(equalToConstant: 60),
               catalog.leadingAnchor.constraint(equalTo: viewNavBar.safeAreaLayoutGuide.leadingAnchor, constant: 10),
               catalog.bottomAnchor.constraint(equalTo: viewNavBar.safeAreaLayoutGuide.bottomAnchor, constant: 0)
            ])
-           
        }
-
    }

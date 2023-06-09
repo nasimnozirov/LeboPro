@@ -12,23 +12,22 @@ class BasketTableViewController: UITableViewController {
     
     private var model = Basket.getProduct()
     private var viewNavBar = UIView()
-
-       private let basketName = CustomLabel(
-           backgroundColor: .white,
-           textColor: .black,
-           title: "Корзина",
-           font: UIFont.systemFont(ofSize: 40)
-       )
-       
-       override func viewDidAppear(_ animated: Bool) {
-           super.viewDidAppear(animated)
-           viewNavBar = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
-           viewNavBar.backgroundColor = .white
-           navigationController?.navigationBar.addSubview(viewNavBar)
-           viewNavBar.addSubview(basketName)
-         fixToConstraint()
-       }
     
+    private let basketName = CustomLabel(
+        backgroundColor: .white,
+        textColor: .black,
+        title: "Корзина",
+        font: UIFont.systemFont(ofSize: 40)
+    )
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewNavBar = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+        viewNavBar.backgroundColor = .white
+        navigationController?.navigationBar.addSubview(viewNavBar)
+        viewNavBar.addSubview(basketName)
+        fixToConstraint()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +37,9 @@ class BasketTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return model.product.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:  UITableViewCell
         if let reuseCell = tableView.dequeueReusableCell(withIdentifier: "cell") {
@@ -56,17 +54,14 @@ class BasketTableViewController: UITableViewController {
         if let image = UIImage(named: product){
             configuration.image = image
         }
+        
         configuration.textProperties.alignment = .natural
         configuration.imageProperties.cornerRadius = tableView.rowHeight / 2
-        
         
         cell.contentConfiguration = configuration
         
         return cell
     }
-    
-   
-        
     
     //УДАЛЯЕМ ЯЧЕЙКИ
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -86,6 +81,7 @@ class BasketTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
     }
+    
     // чтобы ячейки не сдивигались
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
@@ -93,13 +89,10 @@ class BasketTableViewController: UITableViewController {
     
     private func fixToConstraint() {
         NSLayoutConstraint.activate([
-          
-
-           basketName.heightAnchor.constraint(equalToConstant: 60),
-           basketName.leadingAnchor.constraint(equalTo: viewNavBar.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-           basketName.bottomAnchor.constraint(equalTo: viewNavBar.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+            basketName.heightAnchor.constraint(equalToConstant: 60),
+            basketName.leadingAnchor.constraint(equalTo: viewNavBar.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            basketName.bottomAnchor.constraint(equalTo: viewNavBar.safeAreaLayoutGuide.bottomAnchor, constant: 0)
         ])
         
     }
-
 }

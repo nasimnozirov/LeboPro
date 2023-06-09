@@ -9,9 +9,9 @@ import UIKit
 
 class FavoriteViewController: UITableViewController  {
     
- private var model = Basket.getProduct()
- private var viewNavBar = UIView()
-
+    private var model = Basket.getProduct()
+    private var viewNavBar = UIView()
+    
     private let favorite = CustomLabel(
         backgroundColor: .white,
         textColor: .black,
@@ -25,14 +25,14 @@ class FavoriteViewController: UITableViewController  {
         viewNavBar.backgroundColor = .white
         navigationController?.navigationBar.addSubview(viewNavBar)
         viewNavBar.addSubview(favorite)
-      fixToConstraint()
+        fixToConstraint()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 145
         tableView.contentInset = UIEdgeInsets(top: 60, left: 0, bottom: 0, right: 0)
-       
+        
     }
     
     // MARK: - Table view data source
@@ -40,7 +40,7 @@ class FavoriteViewController: UITableViewController  {
         
         return model.product.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:  UITableViewCell
         if let reuseCell = tableView.dequeueReusableCell(withIdentifier: "cell") {
@@ -82,6 +82,7 @@ class FavoriteViewController: UITableViewController  {
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
     }
+    
     // чтобы ячейки не сдивигались
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
@@ -89,13 +90,9 @@ class FavoriteViewController: UITableViewController  {
     
     private func fixToConstraint() {
         NSLayoutConstraint.activate([
-          
-
-           favorite.heightAnchor.constraint(equalToConstant: 60),
-           favorite.leadingAnchor.constraint(equalTo: viewNavBar.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-           favorite.bottomAnchor.constraint(equalTo: viewNavBar.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+            favorite.heightAnchor.constraint(equalToConstant: 60),
+            favorite.leadingAnchor.constraint(equalTo: viewNavBar.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            favorite.bottomAnchor.constraint(equalTo: viewNavBar.safeAreaLayoutGuide.bottomAnchor, constant: 0)
         ])
-        
     }
-
 }
