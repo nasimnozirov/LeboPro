@@ -33,14 +33,14 @@ class MainViewController: UIViewController {
 
     private let ForgotPasswordButton = CustomButton(
         withTitle: "Забыли пароль?",
-        textAlignment: .left,
+        textAlignment: .right,
         font: 12
     )
     
     
     private let registerButton = CustomButton(
         withTitle: "Зарегистрироваться",
-        textAlignment: .right,
+        textAlignment: .left,
         font: 12
     )
     
@@ -65,7 +65,7 @@ class MainViewController: UIViewController {
     private let horizontalStackViewButton: UIStackView = {
         let verticalStackView = UIStackView()
         verticalStackView.alignment = .fill
-        verticalStackView.distribution = .fill
+        verticalStackView.distribution = .fillEqually
         verticalStackView.axis = .horizontal
         verticalStackView.spacing = 50
         verticalStackView.backgroundColor = .black
@@ -77,7 +77,7 @@ class MainViewController: UIViewController {
     // Mark: - Override function
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .black
         addSubview()
         addElementInStack()
         setConstraints()
@@ -102,8 +102,10 @@ class MainViewController: UIViewController {
     private func addElementInStack() {
         verticalStackViewTF.addArrangedSubview(userNameTF)
         verticalStackViewTF.addArrangedSubview(passwordTF)
-        horizontalStackViewButton.addArrangedSubview(ForgotPasswordButton)
+        verticalStackViewTF.addArrangedSubview(horizontalStackViewButton)
         horizontalStackViewButton.addArrangedSubview(registerButton)
+        horizontalStackViewButton.addArrangedSubview(ForgotPasswordButton)
+        
     }
     
     private func setConstraints() {
@@ -117,10 +119,10 @@ class MainViewController: UIViewController {
             verticalStackViewTF.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
             verticalStackViewTF.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -640),
             
-            horizontalStackViewButton.topAnchor.constraint(equalTo: verticalStackViewTF.bottomAnchor, constant: 10),
-            horizontalStackViewButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
-            horizontalStackViewButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
-            horizontalStackViewButton.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -750),
+//            horizontalStackViewButton.topAnchor.constraint(equalTo: verticalStackViewTF.bottomAnchor, constant: 10),
+//            horizontalStackViewButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
+//            horizontalStackViewButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
+//            horizontalStackViewButton.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor , constant: -750),
             
             returnButton.topAnchor.constraint(lessThanOrEqualTo: horizontalStackViewButton.bottomAnchor, constant: 110),
             returnButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
@@ -155,6 +157,10 @@ class MainViewController: UIViewController {
             self.showAlert(title: "Sorry", message: "You entered the wrong username or password")
         }
     }
+    
+    @objc func touch() {
+      dismiss(animated: true)
+     }
 }
  
 // Mark: -  UIAlertController

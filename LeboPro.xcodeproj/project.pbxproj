@@ -22,6 +22,7 @@
 		4897233D2A1A84CF00679428 /* CastomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4897233C2A1A84CF00679428 /* CastomTextField.swift */; };
 		4897233F2A1A994200679428 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4897233E2A1A994200679428 /* CustomButton.swift */; };
 		489723432A2513F700679428 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489723422A2513F700679428 /* CustomLabel.swift */; };
+		48C077F12A2CF2FD00883385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4892F50129C63DD700AF5C92 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -194,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48C077F12A2CF2FD00883385 /* Assets.xcassets in Resources */,
 				4892F50529C63DD700AF5C92 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,7 +356,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2Q75YJGX45;
@@ -383,7 +384,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

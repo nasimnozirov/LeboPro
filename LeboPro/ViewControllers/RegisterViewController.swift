@@ -12,6 +12,7 @@ class RegisterViewController: UIViewController {
     
     // Mark: - Public property
     var scrollView: UIScrollView?
+    let mainVC = MainViewController()
     
     // Mark: - Public property
     private let nameTF = CustomTextField(
@@ -68,7 +69,7 @@ class RegisterViewController: UIViewController {
         horizontalStackView.distribution = .fillEqually
         horizontalStackView.axis = .horizontal
         horizontalStackView.spacing = 120
-        horizontalStackView.backgroundColor = .black
+        horizontalStackView.backgroundColor = .white
         horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
         return horizontalStackView
     }()
@@ -98,8 +99,10 @@ class RegisterViewController: UIViewController {
     }
     
     private func addTargetInButton() {
-        saveButton.addTarget(self, action: #selector(touch), for: .touchUpInside)
-        cancelButton.addTarget(self, action: #selector(touch), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(mainVC.touch), for: .touchUpInside)
+        print("ok1")
+        cancelButton.addTarget(self, action: #selector(mainVC.touch), for: .touchUpInside)
+        print("ok2")
     }
     
     private func addElementInStack() {
@@ -128,9 +131,8 @@ class RegisterViewController: UIViewController {
        
     ])
     }
-   @objc func touch() {
-     dismiss(animated: true)
-    }
+    
+   
 }
 
 // Mark: - extension UITextFieldDelegate (creat keyword)
@@ -149,7 +151,7 @@ extension RegisterViewController: UITextFieldDelegate {
         case emailTF:
             passwordTF.becomeFirstResponder()
         default:
-           touch()
+            mainVC.touch()
         }
      return true
   }

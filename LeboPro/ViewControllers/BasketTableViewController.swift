@@ -10,31 +10,30 @@ import UIKit
 
 class BasketTableViewController: UITableViewController {
     
-    private var imageDict: [String: UIImage] = [:]
     private var model = Basket.getProduct()
-    
-   private var viewNavBar = UIView()
-    
-    private let basketName = CustomLabel(
-        backgroundColor: .white,
-        textColor: .black,
-        title: "Корзина",
-        font: UIFont.systemFont(ofSize: 30)
-    )
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        viewNavBar = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
-        viewNavBar.backgroundColor = .white
-        navigationController?.navigationBar.addSubview(viewNavBar)
-        viewNavBar.addSubview(basketName)
-      fixToConstraint()
-    }
+    private var viewNavBar = UIView()
+
+       private let basketName = CustomLabel(
+           backgroundColor: .white,
+           textColor: .black,
+           title: "Корзина",
+           font: UIFont.systemFont(ofSize: 40)
+       )
+       
+       override func viewDidAppear(_ animated: Bool) {
+           super.viewDidAppear(animated)
+           viewNavBar = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+           viewNavBar.backgroundColor = .white
+           navigationController?.navigationBar.addSubview(viewNavBar)
+           viewNavBar.addSubview(basketName)
+         fixToConstraint()
+       }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        fixToConstraint()
+        tableView.rowHeight = 145
+        tableView.contentInset = UIEdgeInsets(top: 60, left: 0, bottom: 0, right: 0)
     }
     
     // MARK: - Table view data source
@@ -54,7 +53,7 @@ class BasketTableViewController: UITableViewController {
         var configuration = cell.defaultContentConfiguration()
         let product = model.product[indexPath.row]
         configuration.text = product
-        if let image = imageDict[product] {
+        if let image = UIImage(named: product){
             configuration.image = image
         }
         configuration.textProperties.alignment = .natural
@@ -66,9 +65,9 @@ class BasketTableViewController: UITableViewController {
         return cell
     }
     
-    func configure(with product: ) {
+   
         
-    }
+    
     //УДАЛЯЕМ ЯЧЕЙКИ
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { _,_,_ in
@@ -96,9 +95,9 @@ class BasketTableViewController: UITableViewController {
         NSLayoutConstraint.activate([
           
 
-           basketName.heightAnchor.constraint(equalToConstant: 70),
+           basketName.heightAnchor.constraint(equalToConstant: 60),
            basketName.leadingAnchor.constraint(equalTo: viewNavBar.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-           basketName.bottomAnchor.constraint(equalTo: viewNavBar.safeAreaLayoutGuide.bottomAnchor, constant: 10)
+           basketName.bottomAnchor.constraint(equalTo: viewNavBar.safeAreaLayoutGuide.bottomAnchor, constant: 0)
         ])
         
     }
