@@ -185,13 +185,14 @@ extension RegisterViewController: UITextFieldDelegate {
 //    }
 //
 //    @objc func willShow(_ notification: Notification) {
-//        let userInfo = notification.userInfo
+//        let uscerInfo = notification.userInfo
 //        guard let _ = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else
 //        { return }
 //
 //        scrollView?.contentOffset = CGPoint.zero
 //    }
 //
+
 //    @objc func willHide() {
 //        scrollView?.contentOffset = CGPoint.zero
 //    }
