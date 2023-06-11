@@ -22,6 +22,7 @@
 		4897233D2A1A84CF00679428 /* CastomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4897233C2A1A84CF00679428 /* CastomTextField.swift */; };
 		4897233F2A1A994200679428 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4897233E2A1A994200679428 /* CustomButton.swift */; };
 		489723432A2513F700679428 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489723422A2513F700679428 /* CustomLabel.swift */; };
+		48A591A62A3640AA0024C7A0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A591A52A3640A90024C7A0 /* DetailViewController.swift */; };
 		48C077F12A2CF2FD00883385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4892F50129C63DD700AF5C92 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		4897233C2A1A84CF00679428 /* CastomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomTextField.swift; sourceTree = "<group>"; };
 		4897233E2A1A994200679428 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		489723422A2513F700679428 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		48A591A52A3640A90024C7A0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				4892F4FC29C63DD500AF5C92 /* MainViewController.swift */,
 				489723372A129F7800679428 /* TopViewController.swift */,
 				489723352A129EC000679428 /* CatalogTableViewController.swift */,
+				48A591A52A3640A90024C7A0 /* DetailViewController.swift */,
 				484B640629FBE047003000B8 /* BasketTableViewController.swift */,
 				489723392A129FBC00679428 /* FavoriteViewController.swift */,
 				4892F50C29D20D1000AF5C92 /* SettingViewController.swift */,
@@ -219,6 +222,7 @@
 				4892F4FB29C63DD500AF5C92 /* SceneDelegate.swift in Sources */,
 				4892F50D29D20D1000AF5C92 /* SettingViewController.swift in Sources */,
 				489723362A129EC000679428 /* CatalogTableViewController.swift in Sources */,
+				48A591A62A3640AA0024C7A0 /* DetailViewController.swift in Sources */,
 				4876375729EC634E00527A77 /* RegisterViewController.swift in Sources */,
 				4892F50F29D3626000AF5C92 /* Models.swift in Sources */,
 			);
