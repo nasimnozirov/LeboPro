@@ -9,7 +9,8 @@ import UIKit
 
 class FavoriteViewController: UITableViewController  {
     
-    private var model = Basket.getProduct()
+    private var model: [Product] = []
+    
     private var viewNavBar = UIView()
     
     private let favorite = CustomLabel(
@@ -38,7 +39,7 @@ class FavoriteViewController: UITableViewController  {
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return model.product.count
+        return model.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,9 +51,9 @@ class FavoriteViewController: UITableViewController  {
         }
         
         var configuration = cell.defaultContentConfiguration()
-        let product = model.product[indexPath.row]
-        configuration.text = product
-        if let image = UIImage(named: product){
+        let product = model[indexPath.row]
+        configuration.text = product.name
+        if let image = UIImage(named: product.name){
             configuration.image = image
         }
         configuration.textProperties.alignment = .natural
@@ -67,7 +68,7 @@ class FavoriteViewController: UITableViewController  {
     //УДАЛЯЕМ ЯЧЕЙКИ
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { _,_,_ in
-            self.model.product.remove(at: indexPath.row)
+            self.model.remove(at: indexPath.row)
             tableView.reloadData()
         })
         

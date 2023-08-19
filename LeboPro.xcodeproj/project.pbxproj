@@ -15,14 +15,17 @@
 		4892F4FD29C63DD500AF5C92 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F4FC29C63DD500AF5C92 /* MainViewController.swift */; };
 		4892F50529C63DD700AF5C92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4892F50329C63DD700AF5C92 /* LaunchScreen.storyboard */; };
 		4892F50D29D20D1000AF5C92 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F50C29D20D1000AF5C92 /* SettingViewController.swift */; };
-		4892F50F29D3626000AF5C92 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4892F50E29D3625F00AF5C92 /* Models.swift */; };
 		489723362A129EC000679428 /* CatalogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489723352A129EC000679428 /* CatalogTableViewController.swift */; };
 		489723382A129F7800679428 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489723372A129F7800679428 /* TopViewController.swift */; };
 		4897233A2A129FBC00679428 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489723392A129FBC00679428 /* FavoriteViewController.swift */; };
-		4897233D2A1A84CF00679428 /* CastomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4897233C2A1A84CF00679428 /* CastomTextField.swift */; };
+		4897233D2A1A84CF00679428 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4897233C2A1A84CF00679428 /* CustomTextField.swift */; };
 		4897233F2A1A994200679428 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4897233E2A1A994200679428 /* CustomButton.swift */; };
 		489723432A2513F700679428 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489723422A2513F700679428 /* CustomLabel.swift */; };
 		48A591A62A3640AA0024C7A0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A591A52A3640A90024C7A0 /* DetailViewController.swift */; };
+		48A591A82A3781B00024C7A0 /* CustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A591A72A3781B00024C7A0 /* CustomImage.swift */; };
+		48A591AA2A39BB1A0024C7A0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A591A92A39BB1A0024C7A0 /* DataManager.swift */; };
+		48A591AD2A39C0260024C7A0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A591AC2A39C0260024C7A0 /* User.swift */; };
+		48A591AF2A39C15F0024C7A0 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A591AE2A39C15F0024C7A0 /* Product.swift */; };
 		48C077F12A2CF2FD00883385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4892F50129C63DD700AF5C92 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -38,14 +41,17 @@
 		4892F50429C63DD700AF5C92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4892F50629C63DD700AF5C92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4892F50C29D20D1000AF5C92 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		4892F50E29D3625F00AF5C92 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		489723352A129EC000679428 /* CatalogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogTableViewController.swift; sourceTree = "<group>"; };
 		489723372A129F7800679428 /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		489723392A129FBC00679428 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
-		4897233C2A1A84CF00679428 /* CastomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomTextField.swift; sourceTree = "<group>"; };
+		4897233C2A1A84CF00679428 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		4897233E2A1A994200679428 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		489723422A2513F700679428 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		48A591A52A3640A90024C7A0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		48A591A72A3781B00024C7A0 /* CustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
+		48A591A92A39BB1A0024C7A0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		48A591AC2A39C0260024C7A0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		48A591AE2A39C15F0024C7A0 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +93,8 @@
 		484B640429FBDD96003000B8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4892F50E29D3625F00AF5C92 /* Models.swift */,
+				48A591AC2A39C0260024C7A0 /* User.swift */,
+				48A591AE2A39C15F0024C7A0 /* Product.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -122,10 +129,11 @@
 				4897233B2A1A841800679428 /* Views */,
 				484B640329FBDD36003000B8 /* ViewControllers */,
 				484B640429FBDD96003000B8 /* Models */,
-				484B640529FBDDBC003000B8 /* Resouseds */,
-				484B640229FBDD15003000B8 /* App */,
+				48A591AB2A39BB210024C7A0 /* Services */,
 				4892F50629C63DD700AF5C92 /* Info.plist */,
 				4892F50329C63DD700AF5C92 /* LaunchScreen.storyboard */,
+				484B640229FBDD15003000B8 /* App */,
+				484B640529FBDDBC003000B8 /* Resouseds */,
 			);
 			path = LeboPro;
 			sourceTree = "<group>";
@@ -133,11 +141,20 @@
 		4897233B2A1A841800679428 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4897233C2A1A84CF00679428 /* CastomTextField.swift */,
+				4897233C2A1A84CF00679428 /* CustomTextField.swift */,
 				4897233E2A1A994200679428 /* CustomButton.swift */,
 				489723422A2513F700679428 /* CustomLabel.swift */,
+				48A591A72A3781B00024C7A0 /* CustomImage.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		48A591AB2A39BB210024C7A0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				48A591A92A39BB1A0024C7A0 /* DataManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,19 +229,22 @@
 			files = (
 				4897233F2A1A994200679428 /* CustomButton.swift in Sources */,
 				489723432A2513F700679428 /* CustomLabel.swift in Sources */,
-				4897233D2A1A84CF00679428 /* CastomTextField.swift in Sources */,
+				4897233D2A1A84CF00679428 /* CustomTextField.swift in Sources */,
 				4897233A2A129FBC00679428 /* FavoriteViewController.swift in Sources */,
 				484B640129FAF3F9003000B8 /* CreateTabBarController.swift in Sources */,
 				4892F4FD29C63DD500AF5C92 /* MainViewController.swift in Sources */,
 				4892F4F929C63DD500AF5C92 /* AppDelegate.swift in Sources */,
 				484B640729FBE047003000B8 /* BasketTableViewController.swift in Sources */,
 				489723382A129F7800679428 /* TopViewController.swift in Sources */,
+				48A591AA2A39BB1A0024C7A0 /* DataManager.swift in Sources */,
 				4892F4FB29C63DD500AF5C92 /* SceneDelegate.swift in Sources */,
+				48A591AF2A39C15F0024C7A0 /* Product.swift in Sources */,
+				48A591A82A3781B00024C7A0 /* CustomImage.swift in Sources */,
 				4892F50D29D20D1000AF5C92 /* SettingViewController.swift in Sources */,
 				489723362A129EC000679428 /* CatalogTableViewController.swift in Sources */,
+				48A591AD2A39C0260024C7A0 /* User.swift in Sources */,
 				48A591A62A3640AA0024C7A0 /* DetailViewController.swift in Sources */,
 				4876375729EC634E00527A77 /* RegisterViewController.swift in Sources */,
-				4892F50F29D3626000AF5C92 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

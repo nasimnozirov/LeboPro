@@ -141,7 +141,7 @@ class MainViewController: UIViewController {
             let tabBarVC = TabBarController()
             tabBarVC.modalPresentationStyle = .fullScreen
             
-            tabBarVC.userName = userNameTF.text ?? "😢"
+           
             
             present(tabBarVC , animated: true)
             userNameTF.text = ""

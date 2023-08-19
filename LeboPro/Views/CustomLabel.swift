@@ -19,7 +19,7 @@ class CustomLabel: UILabel {
         textAlignment = .center
         text = title
         translatesAutoresizingMaskIntoConstraints = false
-        
+        numberOfLines = 0
         
     }
     
